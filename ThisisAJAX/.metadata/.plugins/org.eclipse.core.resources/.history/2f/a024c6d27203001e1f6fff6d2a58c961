@@ -1,0 +1,60 @@
+package kr.or.kosa.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import kr.or.kosa.dto.Board;
+import kr.or.kosa.utils.ConnectionHelper;
+
+public class BoardDao {
+	//전체조회
+	public List<Board> getMemberList(){
+		
+		List<KoreaMember> memberlist = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = ConnectionHelper.getConnection("oracle");
+			String sql="select id,pwd,name,age,gender,email from koreaMember";
+			pstmt = conn.prepareStatement(sql);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			memberlist = new ArrayList<KoreaMember>(); //POINT
+			
+			while(rs.next()) {
+				KoreaMember m = KoreaMember.builder()
+								.id(rs.getString("id"))
+								.pwd(rs.getString("pwd"))
+								.name(rs.getString("name"))
+								.age(rs.getInt("age"))
+								.gender(rs.getString("gender"))
+								.email(rs.getString("email"))
+								.build();
+
+				memberlist.add(m);
+								
+			}
+			
+			ConnectionHelper.close(rs);
+			ConnectionHelper.close(pstmt);
+			
+			//Pool에게 반환
+			ConnectionHelper.close(conn);
+				
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.getStackTrace();
+			
+		}finally {
+			ConnectionHelper.close(pstmt);
+			ConnectionHelper.close(conn);//반환
+		}
+		
+		return memberlist;
+	}
+}

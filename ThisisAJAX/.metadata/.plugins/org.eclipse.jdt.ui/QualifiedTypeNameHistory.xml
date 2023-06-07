@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="lombok.Data"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
+    <fullyQualifiedTypeName name="lombok.Builder"/>
+    <fullyQualifiedTypeName name="kr.or.kosa.dto.Board_comment"/>
+    <fullyQualifiedTypeName name="kr.or.kosa.dao.BoardDao"/>
+    <fullyQualifiedTypeName name="kr.or.kosa.dto.Board"/>
+    <fullyQualifiedTypeName name="kr.or.kosa.dao.CommentDao"/>
+    <fullyQualifiedTypeName name="netscape.javascript.JSObject"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,14 @@
+package kr.or.kosa.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Board_comment {
+	private int board_seq;
+	private int seq;
+	private String content;	
+}

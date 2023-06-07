@@ -1,0 +1,9 @@
+package kr.or.kosa.dto;
+
+public class Board {
+	private int seq;
+	private String title;
+	private String content;
+	private String Date;
+	private int hit;	
+}
